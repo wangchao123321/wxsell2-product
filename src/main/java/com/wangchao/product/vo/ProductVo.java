@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class ProductVo {
 
@@ -13,5 +15,6 @@ public class ProductVo {
     @JsonPropertyOrder("type")
     private Integer categoryType;
 
+    List<ProductInfoVO> productInfoVOSList;
 
 }
