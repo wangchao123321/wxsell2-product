@@ -3,7 +3,7 @@ package com.wangchao.product.vo;
 import lombok.Data;
 
 @Data
-public class Result<T> {
+public class ResultVO<T> {
 
     // 错误码
     private Integer code;

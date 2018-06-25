@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class ProductVo {
+public class ProductVO {
 
     @JsonProperty("name")
     private String categoryName;
@@ -15,6 +15,7 @@ public class ProductVo {
     @JsonPropertyOrder("type")
     private Integer categoryType;
 
+    @JsonProperty("foods")
     List<ProductInfoVO> productInfoVOSList;
 
 }
