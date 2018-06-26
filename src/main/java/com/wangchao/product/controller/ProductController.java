@@ -2,6 +2,7 @@ package com.wangchao.product.controller;
 
 import com.wangchao.product.dataobject.ProductCategory;
 import com.wangchao.product.dataobject.ProductInfo;
+import com.wangchao.product.dto.CartDTO;
 import com.wangchao.product.service.ProductCategoryService;
 import com.wangchao.product.service.ProductService;
 import com.wangchao.product.utils.ResultVOUtil;
@@ -10,9 +11,7 @@ import com.wangchao.product.vo.ProductVO;
 import com.wangchao.product.vo.ResultVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,5 +66,15 @@ public class ProductController {
         }
 
         return ResultVOUtil.success(productVOList);
+    }
+
+    @PostMapping("/listForOrder")
+    public List<ProductInfo> listForOrder(@RequestBody  List<String> productIdList){
+        return productService.findList(productIdList);
+    }
+
+    @PostMapping("/decreaseStock")
+    public void decreaseStock(@RequestBody List<CartDTO> cartDTOList){
+        productService.decreaseStock(cartDTOList);
     }
 }
