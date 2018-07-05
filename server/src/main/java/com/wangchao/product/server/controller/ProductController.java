@@ -73,8 +73,11 @@ public class ProductController {
         return productService.findList(productIdList);
     }
 
-    @PostMapping("/decreaseStock")
-    public void decreaseStock(@RequestBody List<CartDTO> cartDTOList){
+    @GetMapping("/decreaseStock")
+    public void decreaseStock(){
+        CartDTO cartDTO=new CartDTO("123457",1);
+        List<CartDTO> cartDTOList=new ArrayList<>();
+        cartDTOList.add(cartDTO);
         productService.decreaseStock(cartDTOList);
     }
 }
